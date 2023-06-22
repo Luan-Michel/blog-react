@@ -1,12 +1,16 @@
 // import logo from './logo.svg';
 import './App.css';
 import Listagem from './components/Listagem'
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 function App() {
   return (
-    <div className="App">
-      <Listagem />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Listagem />
+      </div>
+    </Provider>
   );
 }
 

@@ -1,21 +1,23 @@
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setList } from "../store/actions";
 import axios from "axios";
 
 function Listagem() {
-
-    let [lista, setLista] = useState([]);
+    const lista = useSelector((state) => state.posts);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         axios.get('https://dummyjson.com/posts')
         .then((data)=>{
-            setLista(data.data.posts);
+            dispatch(setList(data.data.posts));
         })
-    },[]);
+    },[dispatch]);
 
     const handleReacoes = (i) => {
-        let lista_aux = [...lista];
-        lista_aux[i].reactions++;
-        setLista(lista_aux);
+        // let lista_aux = [...lista];
+        // lista_aux[i].reactions++;
+        // setLista(lista_aux);
     }
 
     return (<div>
