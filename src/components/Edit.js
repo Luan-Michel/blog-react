@@ -27,10 +27,14 @@ function Edit () {
     return (
         <div className="col-6">
             <h1>Edição</h1>
-            <input type="text" 
-                onChange={handleTitle}
-                value={post === undefined || post.title === undefined ? '' : post.title}>
-            </input>
+            <div className="form-group col-6 offset-3 mb-2">
+                <label><b>Título</b></label>
+                <input type="text" 
+                    onChange={handleTitle}
+                    value={post === undefined || post.title === undefined ? '' : post.title}
+                    className="form-control">
+                </input>
+            </div>
             <button type="button" onClick={save} className="btn btn-success">Salvar</button>
         </div>
     )
